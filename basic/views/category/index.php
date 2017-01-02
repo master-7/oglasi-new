@@ -10,6 +10,9 @@ if (isset($category)) {
         <div style="font-size: 28px">
             <a href="/category/index/<?= $val["name"] ?>"><?= $val["name"] ?></a>
         </div>
+        <div style="font-size: 28px">
+            <?= $val["title"] ?>
+        </div>
         <?php
     }
 } else {

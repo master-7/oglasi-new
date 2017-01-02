@@ -2,14 +2,16 @@
 
 use yii\db\Migration;
 
-class m161229_110429_create_table_add extends Migration
+/**
+ * Handles the creation of table `advert`.
+ */
+class m170102_214805_create_advert_table extends Migration
 {
-
 
     public function safeUp()
     {
         $this->execute("
-        CREATE TABLE IF NOT EXISTS `ogl_add` (
+        CREATE TABLE IF NOT EXISTS `ogl_advert` (
           `id` INT NOT NULL AUTO_INCREMENT,
           `cat_id` INT NOT NULL,
           `filter` JSON NOT NULL,
@@ -33,8 +35,7 @@ class m161229_110429_create_table_add extends Migration
     public function safeDown()
     {
         $this->execute("
-        DROP TABLE IF EXISTS `ogl_add` ;
+        DROP TABLE IF EXISTS `ogl_advert` ;
     ");
     }
-
 }
