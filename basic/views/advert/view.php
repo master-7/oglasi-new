@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Addvert */
+/* @var $model app\models\Advert */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Addverts', 'url' => ['index']];
@@ -35,14 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'text:ntext',
             'price',
             'city_id',
-            'map_coordinates',
+            //'map_coordinates',
             'type',
-            'expdate',
+            //'expdate',
             'active',
             'creator_id',
             'video_id',
-            'cdate',
-            'edate',
+            //'cdate',
+            //'edate',
         ],
     ]) ?>
 

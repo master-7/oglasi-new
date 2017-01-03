@@ -3,11 +3,11 @@
 namespace app\models\query;
 
 /**
- * This is the ActiveQuery class for [[\app\models\Addvert]].
+ * This is the ActiveQuery class for [[\app\models\Advert]].
  *
  * @see \app\models\Addvert
  */
-class AddvertQuery extends \yii\db\ActiveQuery
+class AdvertQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class AddvertQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\Addvert[]|array
+     * @return \app\models\Advert[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class AddvertQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return \app\models\Addvert|array|null
+     * @return \app\models\Advert|array|null
      */
     public function one($db = null)
     {

@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Addvert;
+use app\models\Advert;
 use app\models\AddvertSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -56,6 +56,13 @@ class AdvertController extends Controller
         ]);
     }
 
+    public function actionView2()
+    {
+        $sql = "SELECT `title`,`filter` FROM `ogl_advert`";
+        $adverts = Advert::findBySql($sql)->all();                 //
+        return $this->render('view2', compact('adverts')); // return $this->render('view', compact('products', 'category'));
+    }
+
     /**
      * Creates a new Addvert model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -63,7 +70,7 @@ class AdvertController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Addvert();
+        $model = new Advert();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +82,7 @@ class AdvertController extends Controller
     }
 
     /**
-     * Updates an existing Addvert model.
+     * Updates an existing Advert model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -110,12 +117,12 @@ class AdvertController extends Controller
      * Finds the Addvert model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Addvert the loaded model
+     * @return Advert the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Addvert::findOne($id)) !== null) {
+        if (($model = Advert::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -24,11 +24,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'city_id')->textInput() ?>
 
-    <?= $form->field($model, 'map_coordinates')->textInput() ?>
+<!--    --><?//= $form->field($model, 'map_coordinates')->textInput() ?>
 
     <?= $form->field($model, 'type')->textInput() ?>
 
-    <?= $form->field($model, 'expdate')->textInput() ?>
+<!--    --><?//= $form->field($model, 'expdate')->textInput() ?>
 
     <?= $form->field($model, 'active')->textInput() ?>
 

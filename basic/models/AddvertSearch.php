@@ -64,18 +64,18 @@ class AddvertSearch extends Addvert
             'price' => $this->price,
             'city_id' => $this->city_id,
             'type' => $this->type,
-            'expdate' => $this->expdate,
+            //'expdate' => $this->expdate,
             'active' => $this->active,
             'creator_id' => $this->creator_id,
             'video_id' => $this->video_id,
-            'cdate' => $this->cdate,
-            'edate' => $this->edate,
+            //'cdate' => $this->cdate,
+            //'edate' => $this->edate,
         ]);
 
         $query->andFilterWhere(['like', 'filter', $this->filter])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'text', $this->text])
-            ->andFilterWhere(['like', 'map_coordinates', $this->map_coordinates]);
+            ->andFilterWhere(['like', 'text', $this->text]);
+            //->andFilterWhere(['like', 'map_coordinates', $this->map_coordinates]);
 
         return $dataProvider;
     }

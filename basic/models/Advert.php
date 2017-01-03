@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "ogl_add".
+ * This is the model class for table "ogl_advert".
  *
  * @property integer $id
  * @property integer $cat_id
@@ -23,14 +23,14 @@ use Yii;
  * @property string $cdate
  * @property string $edate
  */
-class Addvert extends \yii\db\ActiveRecord
+class Advert extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'ogl_add';
+        return 'ogl_advert';
     }
 
     /**
@@ -39,10 +39,10 @@ class Addvert extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cat_id', 'filter', 'title', 'text', 'price', 'city_id', 'map_coordinates', 'expdate', 'creator_id'], 'required'],
+            [['title', 'text', 'price', ], 'required'],
             [['cat_id', 'price', 'city_id', 'type', 'active', 'creator_id', 'video_id'], 'integer'],
-            [['filter', 'text', 'map_coordinates'], 'string'],
-            [['expdate', 'cdate', 'edate'], 'safe'],
+            [['filter', 'text', /*'map_coordinates'*/], 'string'],
+            [['expdate', 'cdate', 'edate','expdate', 'city_id',/* 'map_coordinates',*/ 'creator_id', 'filter', 'cat_id'], 'safe'],
             [['title'], 'string', 'max' => 255],
         ];
     }
@@ -60,7 +60,7 @@ class Addvert extends \yii\db\ActiveRecord
             'text' => 'Text',
             'price' => 'Price',
             'city_id' => 'City ID',
-            'map_coordinates' => 'Map Coordinates',
+            //'map_coordinates' => 'Map Coordinates',
             'type' => 'Type',
             'expdate' => 'Expdate',
             'active' => 'Active',
@@ -73,10 +73,10 @@ class Addvert extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
-     * @return \app\models\query\AddvertQuery the active query used by this AR class.
+     * @return \app\models\query\AdvertQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new \app\models\query\AddvertQuery(get_called_class());
+        return new \app\models\query\AdvertQuery(get_called_class());
     }
 }
