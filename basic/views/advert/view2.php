@@ -14,13 +14,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php foreach ($adverts as $advert): ?>
+<!--    --><?php //echo var_dump($adverts); ?>
 
-        <?= $advert->title ?>
-        <?= $advert->filter ?><br />
+    <?php echo debug($adverts); ?>
 
-
-    <?php endforeach; ?>
+<!--    --><?php //foreach ($adverts as $advert): ?>
+<!---->
+<!--        --><?//= $advert->title ?>
+<!--        --><?//= $advert->filter ?><!--<br />-->
+<!---->
+<!---->
+<!--    --><?php //endforeach; ?>
 
 
 </div>

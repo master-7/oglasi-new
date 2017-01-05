@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Addvert;
+use app\models\Advert;
 
 /**
- * AddvertSearch represents the model behind the search form about `app\models\Addvert`.
+ * AdvertSearch represents the model behind the search form about `app\models\Advert`.
  */
-class AddvertSearch extends Addvert
+class AdvertSearch extends Advert
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class AddvertSearch extends Addvert
      */
     public function search($params)
     {
-        $query = Addvert::find();
+        $query = Advert::find();
 
         // add conditions that should always apply here
 

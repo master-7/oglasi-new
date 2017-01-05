@@ -40,7 +40,7 @@ class Advert extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'text', 'price', ], 'required'],
-            [['cat_id', 'price', 'city_id', 'type', 'active', 'creator_id', 'video_id'], 'integer'],
+            [['cat_id', 'price', /*'city_id', 'type', 'active', 'creator_id', 'video_id'*/], 'integer'],
             [['filter', 'text', /*'map_coordinates'*/], 'string'],
             [['expdate', 'cdate', 'edate','expdate', 'city_id',/* 'map_coordinates',*/ 'creator_id', 'filter', 'cat_id'], 'safe'],
             [['title'], 'string', 'max' => 255],
@@ -80,3 +80,5 @@ class Advert extends \yii\db\ActiveRecord
         return new \app\models\query\AdvertQuery(get_called_class());
     }
 }
+
+

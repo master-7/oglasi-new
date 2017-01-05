@@ -4,13 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Advert;
-use app\models\AddvertSearch;
+use app\models\AdvertSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AdvertController implements the CRUD actions for Addvert model.
+ * AdvertController implements the CRUD actions for Advert model.
  */
 class AdvertController extends Controller
 {
@@ -30,12 +30,12 @@ class AdvertController extends Controller
     }
 
     /**
-     * Lists all Addvert models.
+     * Lists all Advert models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AddvertSearch();
+        $searchModel = new AdvertSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class AdvertController extends Controller
     }
 
     /**
-     * Displays a single Addvert model.
+     * Displays a single Advert model.
      * @param integer $id
      * @return mixed
      */
@@ -56,15 +56,25 @@ class AdvertController extends Controller
         ]);
     }
 
+//    public function actionView2()
+//    {
+//        $sql = "SELECT `title`,`filter` FROM `ogl_advert`";
+//        $adverts = Advert::findBySql($sql)->all();                 //
+//        return $this->render('view2', compact('adverts')); // return $this->render('view', compact('products', 'category'));
+//    }
+
     public function actionView2()
     {
-        $sql = "SELECT `title`,`filter` FROM `ogl_advert`";
-        $adverts = Advert::findBySql($sql)->all();                 //
-        return $this->render('view2', compact('adverts')); // return $this->render('view', compact('products', 'category'));
+        //$sql = "SELECT `title`,`filter`->'$.*.five' FROM `ogl_advert`";
+        $sql = "SELECT `title`,`filter` FROM `ogl_advert` WHERE JSON_CONTAINS(`filter`, '{\"one\":1}')";
+        $adverts = Advert::findBySql($sql)->all();
+        return $this->render('view2', compact('adverts'));
     }
 
+
+
     /**
-     * Creates a new Addvert model.
+     * Creates a new Advert model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -101,7 +111,7 @@ class AdvertController extends Controller
     }
 
     /**
-     * Deletes an existing Addvert model.
+     * Deletes an existing Advert model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -114,7 +124,7 @@ class AdvertController extends Controller
     }
 
     /**
-     * Finds the Addvert model based on its primary key value.
+     * Finds the Advert model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @return Advert the loaded model
@@ -129,3 +139,8 @@ class AdvertController extends Controller
         }
     }
 }
+
+
+
+
+
