@@ -56,22 +56,13 @@ class AdvertController extends Controller
         ]);
     }
 
-//    public function actionView2()
-//    {
-//        $sql = "SELECT `title`,`filter` FROM `ogl_advert`";
-//        $adverts = Advert::findBySql($sql)->all();                 //
-//        return $this->render('view2', compact('adverts')); // return $this->render('view', compact('products', 'category'));
-//    }
 
     public function actionView2()
     {
-        //$sql = "SELECT `title`,`filter`->'$.*.five' FROM `ogl_advert`";
-        $sql = "SELECT `title`,`filter` FROM `ogl_advert` WHERE JSON_CONTAINS(`filter`, '{\"one\":1}')";
+        $sql = "SELECT JSON_EXTRACT((SELECT `filter` FROM `ogl_advert` WHERE id='4'),'$.Realty') as `title`";
         $adverts = Advert::findBySql($sql)->all();
         return $this->render('view2', compact('adverts'));
     }
-
-
 
     /**
      * Creates a new Advert model.

@@ -16,15 +16,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!--    --><?php //echo var_dump($adverts); ?>
 
-    <?php echo debug($adverts); ?>
+<!--    --><?php //echo debug($adverts); ?>
 
-<!--    --><?php //foreach ($adverts as $advert): ?>
-<!---->
-<!--        --><?//= $advert->title ?>
-<!--        --><?//= $advert->filter ?><!--<br />-->
-<!---->
-<!---->
-<!--    --><?php //endforeach; ?>
+    <?php foreach ($adverts as $advert): ?>
+
+        <?= $advert->title ?>
+        <?= $advert->filter ?><br />
+
+    <?php endforeach; ?>
 
 
 </div>

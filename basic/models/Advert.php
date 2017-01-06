@@ -80,5 +80,3 @@ class Advert extends \yii\db\ActiveRecord
         return new \app\models\query\AdvertQuery(get_called_class());
     }
 }
-
-
