@@ -20,10 +20,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php foreach ($adverts as $advert): ?>
 
-        <?= $advert->title ?>
+<!--        <div style="font-size: 28px">-->
+<!--            <a href="/advert/view2/--><?//= $advert->filter ?><!--">--><?//= $advert->title ?><!--</a>-->
+<!--        </div>-->
+
+        <?= $advert->title ?><br />
         <?= $advert->filter ?><br />
 
     <?php endforeach; ?>
+
 
 
 </div>

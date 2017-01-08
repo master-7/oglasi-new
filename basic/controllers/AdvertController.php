@@ -56,10 +56,11 @@ class AdvertController extends Controller
         ]);
     }
 
-
     public function actionView2()
     {
-        $sql = "SELECT JSON_EXTRACT((SELECT `filter` FROM `ogl_advert` WHERE id='4'),'$.Realty') as `title`";
+        $id = Yii::$app->request->get('id');
+        $sql = "SELECT `title` FROM `ogl_advert` WHERE id ='".$id."'
+        UNION SELECT JSON_EXTRACT((SELECT `filter` FROM `ogl_advert` WHERE id ='".$id."'),'$.Realty') as `title` ";
         $adverts = Advert::findBySql($sql)->all();
         return $this->render('view2', compact('adverts'));
     }
