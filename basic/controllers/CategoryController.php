@@ -30,7 +30,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @param $id
+     * @param $id -> category
      * @return string
      */
     public function actionIndex($id = null)

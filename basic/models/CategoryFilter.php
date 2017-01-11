@@ -55,6 +55,8 @@ class CategoryFilter extends \yii\db\ActiveRecord
         return $this->hasMany(Category::className(), ['filter_id' => 'id']);
     }
 
+    //public function
+
     /**
      * @inheritdoc
      * @return \app\models\query\CategoryFilterQuery the active query used by this AR class.
