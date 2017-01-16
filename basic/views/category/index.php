@@ -37,18 +37,24 @@ if (isset($category)) {
                 break;
             case "select-checkbox-1":
                 echo Html::tag('div', Html::encode($val->name), ['class' => 'base extremum-click']);
-                echo Html::beginTag('div', ['class' => 'extremum-slide']);
+                echo Html::beginTag('div', ['class' => 'base2 extremum-slide']);
                 foreach ($val->values1 as $k => $v) {
-                        echo Html::checkbox('transmission', false, ['label' => $v, 'options'=>['class'=>'base extremum-slide']]);
+                        echo Html::checkbox('kuzov', false, ['label' => $v, 'class'=>'base3']);
                 }
                 foreach ($val->values2 as $k => $v) {
-                    echo Html::checkbox('transmission', false, ['label' => $v, 'options'=>['class'=>'base extremum-slide']]);
+                    echo Html::checkbox('kuzov', false, ['label' => $v, 'class'=>'base3']);
                 }
                 echo Html::endTag('div');
-
-
-
                 break;
+            case "select-checkbox-2":
+                echo Html::tag('div', Html::encode($val->name), ['class' => 'base extremum-click2']);
+                echo Html::beginTag('div', ['class' => 'base3 extremum-slide2']);
+                foreach ($val->values as $k => $v) {
+                    echo Html::checkbox('transmission', false, ['label' => $v, 'class'=>'base3']);
+                }
+                echo Html::endTag('div');
+                break;
+
             default:
                 ?>
 <!--                    <input type="--><?//=$val->type?><!--">-->
