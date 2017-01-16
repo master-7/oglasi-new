@@ -113,3 +113,21 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.extremum-slide {
+    background: #E9E9E7;
+    height: 200px;
+    width: 150px;
+    padding:15px;
+    display:none;
+}
+
+.base {
+    font-size: 28px;
+}
+
+
+.form-group {
+    float: left;
+    margin-right: 10px;
+}
