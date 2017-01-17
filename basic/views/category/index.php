@@ -21,7 +21,6 @@ if (isset($category)) {
 } else {
     foreach ($filter as $key => $val) {
         ?>
-<!--        <h3>--><?//=$val->name?><!--</h3>-->
 
         <?php
         switch ($val->type) {
@@ -39,10 +38,10 @@ if (isset($category)) {
                 echo Html::tag('div', Html::encode($val->name), ['class' => 'base extremum-click']);
                 echo Html::beginTag('div', ['class' => 'base2 extremum-slide']);
                 foreach ($val->values1 as $k => $v) {
-                        echo Html::checkbox('kuzov', false, ['label' => $v, 'class'=>'base3']);
+                        echo '<div class="col-md-6">'. Html::checkbox('kuzov', false, ['label' => $v, 'class'=>'base3']).'</div>';
                 }
                 foreach ($val->values2 as $k => $v) {
-                    echo Html::checkbox('kuzov', false, ['label' => $v, 'class'=>'base3']);
+                    echo '<div class="col-md-6">'. Html::checkbox('kuzov', false, ['label' => $v, 'class'=>'base3']).'</div>';
                 }
                 echo Html::endTag('div');
                 break;
