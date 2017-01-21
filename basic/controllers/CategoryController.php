@@ -36,23 +36,13 @@ class CategoryController extends Controller
      */
     public function actionIndex($id = null)
     {
-        $filterHelper = new FilterHelper();
-
-        return $filterHelper->getFilters($id);
-    }
-
-    /**
-     * Lists all Category models.
-     * @return mixed
-     */
-    public function actionIndex2()
-    {
         $searchModel = new CategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'categoryId' => $id,
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider
         ]);
     }
 
