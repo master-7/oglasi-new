@@ -1,9 +1,12 @@
 <?php
+
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use app\models\CategoryFilter;
 use app\models\Category;
+use yii\widgets;
+use yii\widgets\MaskedInput;
 /* @var $category app\models\Category */
 /* @var $filter app\models\Category */
 
@@ -20,9 +23,6 @@ if (isset($category)) {
     }
 } else {
     foreach ($filter as $key => $val) {
-        ?>
-
-        <?php
         switch ($val->type) {
             case "checkbox":
                 echo Html::tag('div', Html::encode($val->name), ['class' => 'base']);
@@ -62,11 +62,44 @@ if (isset($category)) {
         }
     }
 }
+
+echo '<br /><div id="slider_price_new" class="">'. yii\jui\Slider::widget([
+
+    'clientOptions' => [
+        'min' => 1,
+        'max' => 10,
+    ],
+]).'</div>';
 ?>
 
+<br />
+<div id='options'>
+    <h3>Цена:</h3>
+    <form method='post'>
+        <label for='price'>
+            От:
+            <input type="text" name="price" id="price" maxlength="10">
+        </label>
+        <label for='price2'>
+            До:
+            <input type="text" name="price" id="price2" maxlength="10">
+        </label>
+    </form>
+</div>
+
+<div id="slider_price"></div>
 
 <h3>цена</h3>
-<?= Html::input('text', 'username', $user->name, ['class' => $username]) ?>
-<?= Html::input('text', 'username', $user->name, ['class' => $username]) ?>
+<input type="text" class="param-number-filed param-number-filed-from" placeholder="от">
+    <span class="separator">—</span>
+<input type="text" class="param-number-filed param-number-filed-from" placeholder="до">
+<?//= MaskedInput::widget(['name' => 'price', 'mask' => '9999']) ?><!-- -->
+<span class="currency">
+<span class="form-fieldset__postfix font_arial-rub">₽</span>
+</span>
+<br /><br />
+<?= Html::submitButton('Отправить', ['class' => 'submit']) ?>
+
+<?= Html::resetButton('Сбросить', ['class' => 'reset']) ?>
 
 
