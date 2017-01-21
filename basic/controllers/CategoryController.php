@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use app\controllers\helpers\FilterHelper;
 use Yii;
 use app\models\Category;
 use app\models\search\CategorySearch;

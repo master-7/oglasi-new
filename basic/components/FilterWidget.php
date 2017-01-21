@@ -6,7 +6,7 @@ use yii\base\Widget;
 
 class FilterWidget extends Widget
 {
-    public $idCategory;
+    public $categoryId;
 
     public function init()
     {
@@ -15,8 +15,8 @@ class FilterWidget extends Widget
 
     public function run()
     {
-        if ($this->idCategory) {
-            $categoryData = Category::find()->getFilterDataForCategory($this->idCategory);
+        if ($this->categoryId) {
+            $categoryData = Category::find()->getFilterDataForCategory($this->categoryId);
             return $this->render('filters', [
                 'filter' => json_decode($categoryData->filter["filter"])
             ]);
