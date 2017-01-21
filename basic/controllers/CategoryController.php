@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\controllers\helpers\FilterHelper;
 use Yii;
 use app\models\Category;
 use app\models\search\CategorySearch;
@@ -35,22 +36,9 @@ class CategoryController extends Controller
      */
     public function actionIndex($id = null)
     {
-        if($id) {
-            $category = Category::find()
-                ->withName($id)
-                ->with("filter")
-                ->one();
+        $filterHelper = new FilterHelper();
 
-            return $this->render('index', [
-                'filter' => json_decode($category->filter["filter"])
-            ]);
-        } else {
-            $category = Category::find()->asArray()->all();
-
-            return $this->render('index', [
-                'category' => $category
-            ]);
-        }
+        return $filterHelper->getFilters($id);
     }
 
     /**
