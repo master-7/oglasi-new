@@ -19,6 +19,14 @@ class CategoryQuery extends \yii\db\ActiveQuery
         );
     }
 
+    public function getFilterDataForCategory($id)
+    {
+        return $this->withName($id)
+            ->with("filter")
+            ->asArray()
+            ->one();
+    }
+
     /**
      * @inheritdoc
      * @return \app\models\Category[]|array
