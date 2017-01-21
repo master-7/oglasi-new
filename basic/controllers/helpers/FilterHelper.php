@@ -32,7 +32,7 @@ class FilterHelper {
             ]);
         }
         else {
-            return $this->render('index', [
+            return $this->render('@app/views/categoryfilter/filters.php', [
                 'category' => Category::find()->asArray()->all()
             ]);
         }
